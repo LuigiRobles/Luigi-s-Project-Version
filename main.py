@@ -3,11 +3,26 @@
 
 # Function 1: Input Player Rounds
 def inputRounds():
-    return None
+    try: 
+       user_rounds = int(input("Enter Number of Rounds:"))
+    except ValueError:
+        user_rounds = 2
+    except TypeError:
+        user_rounds = 2
+    return user_rounds
 
 # Function 2: Input Player Word
 def inputWord():
-    return None
+    rounds = user_rounds
+    while rounds  != 0:
+        print('Round ',rounds)
+        player1 = input('Player 1 word: ')
+        player2 = input('Player 2 word: ')
+        players['player1'] = [player1] 
+        players['player2'] = [player2] 
+        rounds = rounds - 1
+    else:
+        return players['player1'], players['player2']
 
 # Function 3: Validate Word
 def validWord():
@@ -27,7 +42,12 @@ def initPoints():
 
 # Function 7: Initialize Players Dictionary
 def initPlayers():
-    return None
+    players = { 'rounds':0, 
+                'player1':[], 
+                'player2':[], 
+                'score1':0, 
+                'score2':0 }
+    return players
 
 # Main Program
 if __name__ == '__main__':
@@ -36,6 +56,12 @@ if __name__ == '__main__':
     points = initPoints()
     players = initPlayers()
     messages = initMessages()
+    user_rounds = inputRounds()
+    player1_word , player2_word = inputWord()
+   
 
     # Main Program
-    print('Main Program Goes Here') 
+    #print('Main Program Goes Here')
+    print(players)
+    
+    
